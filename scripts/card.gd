@@ -12,7 +12,8 @@ func setup(manager, data := {}):
 	manager.connect_card_signals(self)
 	
 	if "title" in data:
-		$Panel/VBoxContainer/Label.text = data["title"]
+		label = data["title"]
+		$Panel/VBoxContainer/Label.text = label
 	if "art" in data:
 		var tex = load(data["art"])
 		$Panel/VBoxContainer/CardArt.texture = tex

@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bii5ij250mjb2"]
+[gd_scene load_steps=9 format=3 uid="uid://bii5ij250mjb2"]
 
 [ext_resource type="Script" uid="uid://b6yk6savk0e1j" path="res://scripts/main.gd" id="1_0bbpv"]
 [ext_resource type="Texture2D" uid="uid://4inqo68uo0ps" path="res://assets/isometric-sandbox-32x32/isometric-sandbox-32x32/isometric-sandbox-sheet.png" id="2_rarhs"]
 [ext_resource type="PackedScene" uid="uid://bfutcib80jvqp" path="res://scenes/player.tscn" id="3_vcsgt"]
 [ext_resource type="Script" uid="uid://ct46vegv5b0d6" path="res://scripts/card_manager.gd" id="4_vcsgt"]
 [ext_resource type="Script" uid="uid://bxubweykgwung" path="res://scripts/player_hand.gd" id="5_vcsgt"]
+[ext_resource type="Script" uid="uid://b333swjaourt4" path="res://scripts/playing_field.gd" id="6_c01mt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yqjtg"]
 texture = ExtResource("2_rarhs")
@@ -228,6 +229,25 @@ script = ExtResource("4_vcsgt")
 script = ExtResource("5_vcsgt")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PlayingField" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -198.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_c01mt")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/PlayingField"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 1, 0.286275)
 
 [node name="UI" type="Control" parent="CanvasLayer"]
 layout_mode = 3

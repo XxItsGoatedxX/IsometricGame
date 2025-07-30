@@ -33,15 +33,26 @@ func start_drag(card):
 	card.move_to_front()
 
 func end_drag():
-	card_being_dragged.scale = Vector2(1.05, 1.05)
-	
 	var card_hand = get_tree().root.get_node("Main/CanvasLayer/UI/CardHand")
-	card_being_dragged.get_parent().remove_child(card_being_dragged)
-	card_hand.add_child(card_being_dragged)
+	var playing_field = get_tree().root.get_node("Main/CanvasLayer/PlayingField")
+	#Get drop position
+	var mouse_pos = get_viewport().get_mouse_position()
+	var field_rect = Rect2(playing_field.global_position, playing_field.size)
+	var is_over_field = field_rect.has_point(mouse_pos)
 	
-	player_hand_reference.add_card_to_hand(card_being_dragged)
+	if is_over_field:
+		trigger_card_effect(card_being_dragged)
+		player_hand_reference.remove_from_hand(card_being_dragged)
+		card_being_dragged.queue_free() #Add animation later
+	else:
+		# Return to hand
+		card_being_dragged.get_parent().remove_child(card_being_dragged)
+		card_hand.add_child(card_being_dragged)
+		player_hand_reference.add_card_to_hand(card_being_dragged)
+	
+	card_being_dragged.scale = Vector2(1.05, 1.05)
 	card_being_dragged = null
-	
+
 func get_card_under_mouse():
 	for card in player_hand_reference.player_hand:
 		var global_rect = Rect2(card.get_global_position(), card.size)
@@ -85,3 +96,17 @@ func highlight_card(card, hovered):
 	else:
 		card.scale = Vector2(1, 1)
 		card.z_index = 1
+func trigger_card_effect(card):
+	var type = card.label
+	print(card.label)
+	match type:
+		"Fireball":
+			print("Cast Fireball")
+		"Ice Ray":
+			print("Cast Ice Ray")
+		"Poison Mist":
+			print("Cast Poison Mist")
+		"Drop on field":
+			print("🎯 Card dropped on field effect triggered!")
+		_:
+			print("No effect for:", type)
