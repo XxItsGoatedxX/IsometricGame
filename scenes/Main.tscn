@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bii5ij250mjb2"]
+[gd_scene load_steps=14 format=3 uid="uid://bii5ij250mjb2"]
 
 [ext_resource type="Script" uid="uid://b6yk6savk0e1j" path="res://scripts/main.gd" id="1_0bbpv"]
 [ext_resource type="Texture2D" uid="uid://4inqo68uo0ps" path="res://assets/isometric-sandbox-32x32/isometric-sandbox-32x32/isometric-sandbox-sheet.png" id="2_rarhs"]
@@ -6,6 +6,11 @@
 [ext_resource type="Script" uid="uid://ct46vegv5b0d6" path="res://scripts/card_manager.gd" id="4_vcsgt"]
 [ext_resource type="Script" uid="uid://bxubweykgwung" path="res://scripts/player_hand.gd" id="5_vcsgt"]
 [ext_resource type="Script" uid="uid://b333swjaourt4" path="res://scripts/playing_field.gd" id="6_c01mt"]
+[ext_resource type="Script" uid="uid://b2fw4su85uhgs" path="res://scripts/card_hand.gd" id="7_nxtc6"]
+[ext_resource type="Texture2D" uid="uid://bmb0vaawlqlg4" path="res://assets/HealthBarUnder.png" id="8_lhr70"]
+[ext_resource type="Texture2D" uid="uid://pir8hbk75arf" path="res://assets/HealthBarOver.png" id="9_wp0k4"]
+[ext_resource type="Texture2D" uid="uid://debko2xj3ojo1" path="res://assets/HealthBarProgress.png" id="10_bjd11"]
+[ext_resource type="Texture2D" uid="uid://bfeuapt5wiuxw" path="res://assets/StaminaBarOver.png" id="11_wp0k4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yqjtg"]
 texture = ExtResource("2_rarhs")
@@ -247,7 +252,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 0, 1, 0.286275)
+color = Color(1, 1, 1, 0.286275)
 
 [node name="UI" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -269,3 +274,39 @@ grow_vertical = 0
 pivot_offset = Vector2(0, -50)
 theme_override_constants/separation = 20
 alignment = 1
+script = ExtResource("7_nxtc6")
+
+[node name="StatusUI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 3.0
+offset_right = 164.0
+offset_bottom = 117.0
+
+[node name="HealthBar" type="TextureProgressBar" parent="CanvasLayer/StatusUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -73.0
+offset_top = -158.0
+offset_right = 522.0
+offset_bottom = 187.0
+grow_horizontal = 2
+grow_vertical = 2
+nine_patch_stretch = true
+texture_under = ExtResource("8_lhr70")
+texture_over = ExtResource("9_wp0k4")
+texture_progress = ExtResource("10_bjd11")
+
+[node name="StaminaBar" type="TextureProgressBar" parent="CanvasLayer/StatusUI"]
+layout_mode = 0
+offset_left = -25.0
+offset_top = -36.0
+offset_right = 438.0
+offset_bottom = 273.0
+value = 100.0
+nine_patch_stretch = true
+texture_under = ExtResource("8_lhr70")
+texture_over = ExtResource("10_bjd11")
+texture_progress = ExtResource("11_wp0k4")

@@ -4,10 +4,14 @@
 [ext_resource type="Script" uid="uid://bfw1ql2hexj72" path="res://scripts/card.gd" id="2_6u4wf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6u4wf"]
-bg_color = Color(0.860061, 0.709131, 0.692679, 1)
+bg_color = Color(0.890196, 0.678431, 0.529412, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="Card" type="Control"]
-custom_minimum_size = Vector2(120, 170)
+custom_minimum_size = Vector2(140, 210)
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("2_6u4wf")
