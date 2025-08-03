@@ -303,10 +303,15 @@ texture_progress = ExtResource("10_bjd11")
 layout_mode = 0
 offset_left = -25.0
 offset_top = -36.0
-offset_right = 438.0
-offset_bottom = 273.0
+offset_right = 426.0
+offset_bottom = 276.0
 value = 100.0
 nine_patch_stretch = true
 texture_under = ExtResource("8_lhr70")
 texture_over = ExtResource("10_bjd11")
 texture_progress = ExtResource("11_wp0k4")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-591, -8, -2, 287, 592, -9, 287, -160, 304, -169, 272, -183, 256, -176, 1, -305, -288, -159, -304, -167, -332, -152, -322, -145, -575, -17, -706, -102, 21, -457, 722, -110, 754, 58, 83, 403, -504, 315, -693, -33, -582, -15)
