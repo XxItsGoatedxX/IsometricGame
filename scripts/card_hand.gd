@@ -1,6 +1,7 @@
 extends HBoxContainer
 
 var hightlighted_card
+var selected_card: Node = null
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed:
@@ -15,6 +16,7 @@ func _input(event: InputEvent) -> void:
 		if index >= 0 and index < get_child_count():
 			var selected = get_child(index)
 			select_card(selected)
+			selected_card = selected
 			
 func select_card(card):
 	var style_box = StyleBoxFlat.new()
@@ -52,3 +54,4 @@ func set_corner_radius(style_box):
 	style_box.corner_radius_bottom_right = 10
 	style_box.corner_radius_top_left = 10
 	style_box.corner_radius_top_right = 10
+	

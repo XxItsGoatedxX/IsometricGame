@@ -96,6 +96,7 @@ func highlight_card(card, hovered):
 	else:
 		card.scale = Vector2(1, 1)
 		card.z_index = 1
+		
 func trigger_card_effect(card):
 	var type = card.label
 	print(card.label)

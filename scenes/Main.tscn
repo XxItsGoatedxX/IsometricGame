@@ -308,7 +308,6 @@ offset_bottom = 276.0
 value = 100.0
 nine_patch_stretch = true
 texture_under = ExtResource("8_lhr70")
-texture_over = ExtResource("10_bjd11")
 texture_progress = ExtResource("11_wp0k4")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
